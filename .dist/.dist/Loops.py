@@ -177,6 +177,18 @@ while True:
 
 
 
+countries = ["India", "USA", "UK", "Canada", "Australia"]
+
+counter = 0
+output = []
+for country in countries:
+    if country.startswith("U"):
+        counter += 1
+        output.append(country)
+print(f"Number of countries starting with 'U': {counter}")
+print(f"Countries starting with 'U': {output}")
+
+
 
 
 
