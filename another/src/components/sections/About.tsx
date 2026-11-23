@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { portfolioConfig } from "@/config/portfolio.config";
+import { Tilt3D } from "@/components/ui/Tilt3D";
 
 interface AboutProps {
   isLightTheme?: boolean;
@@ -288,46 +289,52 @@ export function About({ isLightTheme = false }: AboutProps) {
           </div>
 
           {/* GTA WANTED LEVEL STARS HUD */}
-          <div
-            className={`p-4 rounded-xl border flex flex-col items-end gap-1.5 transition-all ${
-              isLightTheme
-                ? "bg-white border-[#E2E8F0] shadow-sm"
-                : "bg-[#09111E]/90 border-[#1E3A5F] shadow-[0_0_25px_rgba(56,189,248,0.15)]"
-            }`}
+          <Tilt3D
+            intensity={8}
+            glareColor="rgba(56, 189, 248, 0.3)"
+            className="rounded-xl"
           >
-            <div className="flex items-center gap-2">
-              <span className="text-[11px] font-mono tracking-wider uppercase font-bold text-[#94A3B8]">
-                WANTED LEVEL:
-              </span>
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map((starIndex) => {
-                  const isActive = starIndex <= wantedStars;
-                  return (
-                    <button
-                      key={starIndex}
-                      onClick={() => setWantedStars(starIndex)}
-                      title={`Wanted Level ${starIndex} Star`}
-                      className="cursor-pointer transition-transform hover:scale-125 focus:outline-none"
-                    >
-                      <Star
-                        className={`w-5 h-5 transition-all ${
-                          isActive
-                            ? "fill-[#38BDF8] text-[#38BDF8] drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] animate-pulse"
-                            : "text-[#475569] fill-transparent"
-                        }`}
-                      />
-                    </button>
-                  );
-                })}
+            <div
+              className={`p-4 rounded-xl border flex flex-col items-end gap-1.5 transition-all ${
+                isLightTheme
+                  ? "bg-white border-[#E2E8F0] shadow-sm"
+                  : "bg-[#09111E]/90 border-[#1E3A5F] shadow-[0_0_25px_rgba(56,189,248,0.15)]"
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-mono tracking-wider uppercase font-bold text-[#94A3B8]">
+                  WANTED LEVEL:
+                </span>
+                <div className="flex items-center gap-1">
+                  {[1, 2, 3, 4, 5].map((starIndex) => {
+                    const isActive = starIndex <= wantedStars;
+                    return (
+                      <button
+                        key={starIndex}
+                        onClick={() => setWantedStars(starIndex)}
+                        title={`Wanted Level ${starIndex} Star`}
+                        className="cursor-pointer transition-transform hover:scale-125 focus:outline-none"
+                      >
+                        <Star
+                          className={`w-5 h-5 transition-all ${
+                            isActive
+                              ? "fill-[#38BDF8] text-[#38BDF8] drop-shadow-[0_0_8px_rgba(56,189,248,0.8)] animate-pulse"
+                              : "text-[#475569] fill-transparent"
+                          }`}
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-[10px] font-mono text-[#38BDF8]">
+                <span>STATUS:</span>
+                <span className="font-bold text-[#00FF66] bg-[#00FF66]/10 px-1.5 py-0.5 rounded border border-[#00FF66]/30">
+                  MOST WANTED ML ARCHITECT
+                </span>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-[10px] font-mono text-[#38BDF8]">
-              <span>STATUS:</span>
-              <span className="font-bold text-[#00FF66] bg-[#00FF66]/10 px-1.5 py-0.5 rounded border border-[#00FF66]/30">
-                MOST WANTED ML ARCHITECT
-              </span>
-            </div>
-          </div>
+          </Tilt3D>
         </div>
 
         {/* MAIN GTA DASHBOARD: 2 COLUMNS */}
@@ -337,13 +344,18 @@ export function About({ isLightTheme = false }: AboutProps) {
           <div className="lg:col-span-5 space-y-6">
             
             {/* GTA V / SAN ANDREAS PLAYER IDENTITY CARD */}
-            <div
-              className={`p-6 sm:p-7 rounded-2xl border relative overflow-hidden transition-all ${
-                isLightTheme
-                  ? "bg-white border-[#CBD5E1] shadow-lg text-[#1E293B]"
-                  : "bg-[#08101F]/90 border-[#1E3A5F] shadow-[0_0_35px_rgba(56,189,248,0.18)] text-white"
-              }`}
+            <Tilt3D
+              intensity={9}
+              glareColor="rgba(56, 189, 248, 0.2)"
+              className="rounded-2xl"
             >
+              <div
+                className={`p-6 sm:p-7 rounded-2xl border relative overflow-hidden transition-all ${
+                  isLightTheme
+                    ? "bg-white border-[#CBD5E1] shadow-lg text-[#1E293B]"
+                    : "bg-[#08101F]/90 border-[#1E3A5F] shadow-[0_0_35px_rgba(56,189,248,0.18)] text-white"
+                }`}
+              >
               {/* Top Banner with Sky Blue Accent */}
               <div className="flex items-center justify-between pb-4 border-b border-[#1E3A5F]/40 mb-5">
                 <div className="flex items-center gap-3">
@@ -496,13 +508,19 @@ export function About({ isLightTheme = false }: AboutProps) {
                 </span>
               </div>
             </div>
+            </Tilt3D>
 
             {/* GTA LOS SANTOS RADAR MINIMAP & RADIO TUNER */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               
               {/* Circular Cyber Minimap */}
+              <Tilt3D
+                intensity={12}
+                glareColor="rgba(56, 189, 248, 0.25)"
+                className="rounded-xl h-full"
+              >
               <div
-                className={`p-4 rounded-xl border flex flex-col items-center justify-center relative overflow-hidden ${
+                className={`p-4 rounded-xl border flex flex-col items-center justify-center relative overflow-hidden h-full ${
                   isLightTheme
                     ? "bg-white border-[#CBD5E1]"
                     : "bg-[#08101F]/90 border-[#1E3A5F]"
@@ -546,10 +564,16 @@ export function About({ isLightTheme = false }: AboutProps) {
                   <span className="text-[#94A3B8] block text-[9px]">LAT: 28.61° N // LNG: 77.20° E</span>
                 </div>
               </div>
+              </Tilt3D>
 
               {/* GTA Radio Station Tuner */}
+              <Tilt3D
+                intensity={12}
+                glareColor="rgba(56, 189, 248, 0.25)"
+                className="rounded-xl h-full"
+              >
               <div
-                className={`p-4 rounded-xl border flex flex-col justify-between ${
+                className={`p-4 rounded-xl border flex flex-col justify-between h-full ${
                   isLightTheme
                     ? "bg-white border-[#CBD5E1]"
                     : "bg-[#08101F]/90 border-[#1E3A5F]"
@@ -618,6 +642,7 @@ export function About({ isLightTheme = false }: AboutProps) {
                   ))}
                 </div>
               </div>
+              </Tilt3D>
 
             </div>
           </div>
@@ -626,6 +651,11 @@ export function About({ isLightTheme = false }: AboutProps) {
           <div className="lg:col-span-7 space-y-6">
             
             {/* GTA V STYLE WEAPON / LOADOUT WHEEL SELECTOR */}
+            <Tilt3D
+              intensity={8}
+              glareColor="rgba(56, 189, 248, 0.2)"
+              className="rounded-2xl"
+            >
             <div
               className={`p-6 sm:p-7 rounded-2xl border transition-all ${
                 isLightTheme
@@ -767,8 +797,14 @@ export function About({ isLightTheme = false }: AboutProps) {
                 </div>
               </div>
             </div>
+            </Tilt3D>
 
             {/* EDITORIAL NARRATIVE: GTA MISSION BRIEFING STYLE */}
+            <Tilt3D
+              intensity={6}
+              glareColor="rgba(56, 189, 248, 0.15)"
+              className="rounded-2xl"
+            >
             <div
               className={`p-6 sm:p-7 rounded-2xl border transition-all ${
                 isLightTheme
@@ -853,6 +889,7 @@ export function About({ isLightTheme = false }: AboutProps) {
                 </div>
               </div>
             </div>
+            </Tilt3D>
 
           </div>
         </div>

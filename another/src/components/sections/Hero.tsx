@@ -6,6 +6,7 @@ import { ArrowDown, ArrowUpRight, Terminal, Sparkles } from "lucide-react";
 import { portfolioConfig } from "@/config/portfolio.config";
 import { HeroCanvas } from "@/components/sections/HeroCanvas";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { Tilt3D } from "@/components/ui/Tilt3D";
 
 interface HeroProps {
   isLightTheme?: boolean;
@@ -24,10 +25,16 @@ export function Hero({ isLightTheme = false }: HeroProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto z-10 py-8 lg:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Minecraft x Hacker Typography */}
-          <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+          <Tilt3D
+            intensity={6}
+            scale={1.01}
+            glare={false}
+            perspective={1200}
+            className="lg:col-span-7 space-y-6 sm:space-y-8"
+          >
             {/* Minecraft Hacker Terminal Tag with Neon Green Accent */}
             <div
-              className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg border transition-all ${
+              className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-lg border transition-all translate-z-20 ${
                 isLightTheme
                   ? "bg-white border-[#EAEAEA] shadow-subtle"
                   : "bg-[#0E091E] border-[#00FF66]/40 text-emerald-300 shadow-[0_0_15px_rgba(0,255,102,0.2)]"
@@ -42,7 +49,7 @@ export function Hero({ isLightTheme = false }: HeroProps) {
             </div>
 
             {/* Oversized Headline with Dual Neon Green & Purple Glow */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.08]">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.08] translate-z-30">
               <span className={`block ${isLightTheme ? "text-[#171717]" : "text-white"}`}>
                 {portfolioConfig.hero.headlinePart1}
               </span>
@@ -56,7 +63,7 @@ export function Hero({ isLightTheme = false }: HeroProps) {
 
             {/* Supporting Text */}
             <p
-              className={`text-base sm:text-lg max-w-xl font-normal leading-relaxed ${
+              className={`text-base sm:text-lg max-w-xl font-normal leading-relaxed translate-z-20 ${
                 isLightTheme ? "text-[#555555]" : "text-[#94A3B8]"
               }`}
             >
@@ -64,7 +71,7 @@ export function Hero({ isLightTheme = false }: HeroProps) {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-4 pt-2 translate-z-40">
               <Link href="#projects">
                 <MagneticButton
                   className={`px-6 py-3.5 rounded-lg font-mono font-medium text-sm flex items-center gap-2.5 transition-all group ${
@@ -94,7 +101,7 @@ export function Hero({ isLightTheme = false }: HeroProps) {
 
             {/* Micro specs HUD bar */}
             <div
-              className={`pt-6 border-t grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono ${
+              className={`pt-6 border-t grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs font-mono translate-z-20 ${
                 isLightTheme ? "border-[#EAEAEA] text-[#777777]" : "border-[#2A184D] text-[#94A3B8]"
               }`}
             >
@@ -124,7 +131,7 @@ export function Hero({ isLightTheme = false }: HeroProps) {
                 </span>
               </div>
             </div>
-          </div>
+          </Tilt3D>
 
           {/* Right Column: 3D Voxel Hacker Monolith Canvas */}
           <div className="lg:col-span-5 relative flex items-center justify-center">

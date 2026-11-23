@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, FileText, Sun, Moon } from "lucide-react";
+import { Menu, X, FileText, Sun, Moon, Box } from "lucide-react";
 import { portfolioConfig } from "@/config/portfolio.config";
 import { ResumeModal } from "@/components/ui/ResumeModal";
 
@@ -119,8 +119,20 @@ export function Navbar({ isLightTheme = false, onToggleTheme }: NavbarProps) {
             })}
           </nav>
 
-          {/* Right Action: Minecraft XP Badge, Theme Switcher & Resume Button */}
+          {/* Right Action: 3D Matrix Badge, Minecraft XP Badge, Theme Switcher & Resume Button */}
           <div className="hidden sm:flex items-center gap-3">
+            {/* 3D WebGL Space Status Badge */}
+            <div
+              className={`hidden xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-[10px] font-mono transition-all ${
+                isLightTheme
+                  ? "bg-white border-[#EAEAEA] text-[#315EFB]"
+                  : "bg-[#120B24] border-[#00FF66]/40 text-[#00FF66] shadow-[0_0_12px_rgba(0,255,102,0.25)]"
+              }`}
+            >
+              <Box className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: "10s" }} />
+              <span className="font-bold">3D SPACE ACTIVE</span>
+            </div>
+
             {/* Minecraft XP / Level Badge */}
             <div
               className={`hidden lg:flex flex-col px-3 py-1 rounded-lg border text-[10px] font-mono transition-all ${

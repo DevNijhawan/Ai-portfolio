@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { MinecraftHackerBackground } from "@/components/ui/MinecraftHackerBackground";
+import { Global3DSpace } from "@/components/ui/Global3DSpace";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Skills } from "@/components/sections/Skills";
@@ -28,6 +29,9 @@ export default function Home() {
     >
       {/* Precision Minecraft Crosshair + Hacker Reticle Cursor */}
       <CustomCursor />
+
+      {/* Global 3D WebGL Space with Floating Voxels, Grid Waves & Scroll Flight Parallax */}
+      <Global3DSpace isLightTheme={isLightTheme} />
 
       {/* Minecraft x Hacker Digital Rain & Voxel Background Animation */}
       {!isLightTheme && <MinecraftHackerBackground />}

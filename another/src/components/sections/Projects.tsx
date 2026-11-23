@@ -8,6 +8,7 @@ import { VeritasMockup } from "@/components/mockups/VeritasMockup";
 import { FraudDetectionMockup } from "@/components/mockups/FraudDetectionMockup";
 import { WeatherGptMockup } from "@/components/mockups/WeatherGptMockup";
 import { ProjectModal } from "@/components/sections/ProjectModal";
+import { Tilt3D } from "@/components/ui/Tilt3D";
 
 interface ProjectsProps {
   isLightTheme?: boolean;
@@ -198,7 +199,12 @@ export function Projects({ isLightTheme = false }: ProjectsProps) {
                     isEven ? "lg:order-1" : "lg:order-2"
                   } w-full transition-all duration-300 rounded-2xl`}
                 >
-                  <div className="relative group">
+                  <Tilt3D
+                    intensity={7}
+                    perspective={1400}
+                    glareColor="rgba(0, 255, 102, 0.2)"
+                    className="relative group rounded-2xl"
+                  >
                     {/* Live Working Screen Shell Frame */}
                     <div className="rounded-2xl p-1.5 bg-gradient-to-b from-[#2E184D] via-[#120B24] to-[#0A0716] border border-[#00FF66]/30 shadow-[0_0_40px_rgba(0,255,102,0.15)] ring-1 ring-[#00FF66]/20">
                       {/* Top bezel status line */}
@@ -229,7 +235,7 @@ export function Projects({ isLightTheme = false }: ProjectsProps) {
                         Active Live Working Screen
                       </span>
                     </div>
-                  </div>
+                  </Tilt3D>
                 </div>
 
                 {/* Editorial Overview */}

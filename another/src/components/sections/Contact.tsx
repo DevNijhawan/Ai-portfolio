@@ -5,6 +5,7 @@ import { Mail, Send, Copy, Check, AlertCircle, Terminal, Globe, Clock, Sparkles,
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/ui/Icons";
 import confetti from "canvas-confetti";
 import { portfolioConfig } from "@/config/portfolio.config";
+import { Tilt3D } from "@/components/ui/Tilt3D";
 
 interface ContactProps {
   isLightTheme?: boolean;
@@ -278,6 +279,12 @@ export function Contact({ isLightTheme = false }: ContactProps) {
 
         {/* 3. Main Centered Interactive Transmission Form */}
         <div className="max-w-3xl mx-auto">
+          <Tilt3D
+            intensity={5}
+            perspective={1400}
+            glareColor="rgba(168, 85, 247, 0.2)"
+            className="rounded-2xl"
+          >
           <div
             className={`rounded-2xl border overflow-hidden shadow-2xl transition-all ${
               isLightTheme

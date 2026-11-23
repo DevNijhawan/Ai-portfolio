@@ -10,6 +10,7 @@ import {
   ChevronRight
 } from "lucide-react";
 import confetti from "canvas-confetti";
+import { Tilt3D } from "@/components/ui/Tilt3D";
 
 interface TimelineProps {
   isLightTheme?: boolean;
@@ -262,6 +263,11 @@ export function Timeline({ isLightTheme = false }: TimelineProps) {
           </div>
 
           {/* DRAGON BALL SCOUTER / CHAKRA HUD */}
+          <Tilt3D
+            intensity={9}
+            glareColor="rgba(255, 119, 0, 0.3)"
+            className="rounded-xl"
+          >
           <div
             className={`p-4 rounded-xl border flex flex-col items-end gap-2 transition-all relative overflow-hidden ${
               isLightTheme
@@ -305,6 +311,7 @@ export function Timeline({ isLightTheme = false }: TimelineProps) {
               <span>{isCharging ? "CHARGING SAIYAN KI...!" : "UNLEASH CHAKRA / CHARGE KI"}</span>
             </button>
           </div>
+          </Tilt3D>
         </div>
 
         {/* TIMELINE STREAM WITH FLOWING KAMEHAMEHA / CHAKRA BEAM */}
@@ -346,6 +353,11 @@ export function Timeline({ isLightTheme = false }: TimelineProps) {
                   </div>
 
                   {/* ANIME SAGA CARD */}
+                  <Tilt3D
+                    intensity={7}
+                    glareColor="rgba(255, 119, 0, 0.25)"
+                    className="rounded-2xl"
+                  >
                   <div
                     className={`p-6 sm:p-8 rounded-2xl border transition-all relative overflow-hidden ${
                       isActive
@@ -447,6 +459,7 @@ export function Timeline({ isLightTheme = false }: TimelineProps) {
                       ))}
                     </div>
                   </div>
+                  </Tilt3D>
                 </div>
               );
             })}

@@ -97,6 +97,76 @@ body {
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.3), 0 0 30px rgba(0, 255, 102, 0.2);
 }
 
+/* 3D Transform & Perspective Utilities */
+.perspective-800 {
+  perspective: 800px;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.translate-z-10 {
+  transform: translateZ(10px);
+}
+
+.translate-z-20 {
+  transform: translateZ(20px);
+}
+
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+
+.translate-z-40 {
+  transform: translateZ(40px);
+}
+
+.translate-z-50 {
+  transform: translateZ(50px);
+}
+
+.translate-z-60 {
+  transform: translateZ(60px);
+}
+
+/* 3D Floating Animations */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(4deg) rotateY(-4deg);
+  }
+}
+
+.animate-float-3d {
+  animation: float3D 6s ease-in-out infinite;
+}
+
+/* Holographic 3D Foil Glare */
+.holographic-glare {
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(168, 85, 247, 0.12) 30%,
+    rgba(0, 255, 102, 0.08) 50%,
+    transparent 80%
+  );
+}
+
 /* Pulsing neon green animation */
 @keyframes pulseNeonGreen {
   0%, 100% { 

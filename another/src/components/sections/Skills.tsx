@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Sparkles, Shuffle, Flame, Zap, Shield } from "lucide-react";
 import confetti from "canvas-confetti";
 import { portfolioConfig } from "@/config/portfolio.config";
+import { Tilt3D } from "@/components/ui/Tilt3D";
 
 interface SkillsProps {
   isLightTheme?: boolean;
@@ -395,14 +396,15 @@ export function Skills({ isLightTheme = false }: SkillsProps) {
                         onClick={() => setSelectedCardId(card.id)}
                         style={{
                           transform: isHovered || isSelected
-                            ? `translate(${translateX}px, -35px) rotate(0deg) scale(1.08)`
+                            ? `perspective(1200px) translate3d(${translateX}px, -45px, 60px) rotateX(6deg) rotateY(${offset * 3}deg) scale(1.08)`
                             : isShuffling
-                            ? `translate(0px, 0px) rotate(0deg)`
-                            : `translate(${translateX}px, ${Math.abs(offset) * 8}px) rotate(${rotationDeg}deg)`,
+                            ? `perspective(1200px) translate3d(0px, 0px, 0px) rotate(0deg)`
+                            : `perspective(1200px) translate3d(${translateX}px, ${Math.abs(offset) * 8}px, ${-Math.abs(offset) * 12}px) rotate(${rotationDeg}deg) rotateX(10deg)`,
+                          transformStyle: "preserve-3d",
                           zIndex: isHovered || isSelected ? 40 : 10 + idx,
                           transition: "all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)",
                         }}
-                        className={`absolute w-56 sm:w-64 h-80 sm:h-96 rounded-2xl p-5 border cursor-pointer select-none backdrop-blur-xl flex flex-col justify-between ${
+                        className={`absolute w-56 sm:w-64 h-80 sm:h-96 rounded-2xl p-5 border cursor-pointer select-none backdrop-blur-xl flex flex-col justify-between preserve-3d ${
                           isLightTheme ? "bg-white text-black" : "bg-[#0E071D]/95 text-white"
                         } ${isSelected || isHovered ? `${borderColor} ${glowShadow} ring-2 ring-white/30` : "border-[#3B1D6E] shadow-2xl"}`}
                       >
@@ -568,6 +570,11 @@ export function Skills({ isLightTheme = false }: SkillsProps) {
         )}
 
         {/* 3. System Integration Flow with Crimson & Pink Accents */}
+        <Tilt3D
+          intensity={5}
+          glareColor="rgba(255, 0, 85, 0.15)"
+          className="rounded-2xl"
+        >
         <div
           className={`rounded-2xl border p-6 sm:p-8 transition-all ${
             isLightTheme
@@ -649,6 +656,7 @@ export function Skills({ isLightTheme = false }: SkillsProps) {
             ))}
           </div>
         </div>
+        </Tilt3D>
       </div>
     </section>
   );
